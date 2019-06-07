@@ -1,0 +1,367 @@
+@font-face {
+  font-family: "qgrid-iconfont";
+  src: url("../assets/fonts/qgrid-iconfont.eot");
+  src: url("../assets/fonts/qgrid-iconfont.eot?#iefix") format("eot"), url("../assets/fonts/qgrid-iconfont.woff2") format("woff2"), url("../assets/fonts/qgrid-iconfont.woff") format("woff"), url("../assets/fonts/qgrid-iconfont.ttf") format("truetype"), url("../assets/fonts/qgrid-iconfont.svg#qgrid-iconfont") format("svg"); }
+
+.icon:before, .search-glass:before, .logo:before, .angular:before, .angular-js:before, .react:before, .vue:before, .backbone:before, .github:before, .nav-trigger:before, .search-trigger:before {
+  font-family: "qgrid-iconfont";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none; }
+
+.icon-angular:before, .angular:before {
+  content: "\E001"; }
+
+.icon-angularjs:before, .angular-js:before {
+  content: "\E002"; }
+
+.icon-backbone:before, .backbone:before {
+  content: "\E003"; }
+
+.icon-github:before, .github:before {
+  content: "\E004"; }
+
+.icon-hamburger:before, .nav-trigger:before {
+  content: "\E005"; }
+
+.icon-qgrid-logo-simple:before, .logo:before {
+  content: "\E006"; }
+
+.icon-react:before, .react:before {
+  content: "\E007"; }
+
+.icon-search:before, .search-glass:before, .search-trigger:before {
+  content: "\E008"; }
+
+.icon-vue:before, .vue:before {
+  content: "\E009"; }
+
+.qgrid-logo, .search-glass, .logo, .angular, .angular-js, .react, .vue, .backbone, .github, .nav-trigger, .search-trigger, .image-virtualize, .image-css, .image-custom, .image-js {
+  display: inline-block;
+  vertical-align: middle;
+  outline: none;
+  border: 0 transparent;
+  color: white;
+  text-decoration: none;
+  background-color: transparent; }
+
+.image-custom {
+  height: 242px;
+  flex: 1 50%;
+  margin: 0; }
+
+.qgrid-logo {
+  background: url("../assets/images/qgrid-logo.svg") 50% 50% no-repeat;
+  width: 198px;
+  height: 136px;
+  margin: 0; }
+
+.image-virtualize {
+  background: url("../assets/images/virtualize.svg") 50% 50% no-repeat;
+  background-size: 224px 242px;
+  height: 242px;
+  flex: 1 50%;
+  margin: 0; }
+
+.image-css {
+  background: url("../assets/images/css.svg") 50% 50% no-repeat;
+  background-size: 297px 142px;
+  height: 142px;
+  flex: 1 50%;
+  margin: 0; }
+
+.image-custom {
+  background: url("../assets/images/custom.svg") 50% 50% no-repeat;
+  background-size: 231px 199px;
+  height: 199px;
+  flex: 1 50%;
+  margin: 0; }
+
+.image-js {
+  background: url("../assets/images/js.svg") 50% 50% no-repeat;
+  background-size: 200px 200px;
+  height: 200px;
+  flex: 1 50%;
+  margin: 0; }
+
+@media screen and (min-width: 851px) {
+  .pages #nav {
+    display: block !important; }
+  .pages #overlay {
+    display: none !important; }
+  .pages header {
+    display: block;
+    background: none;
+    height: 0; }
+    .pages header .logo-wrapper .logo {
+      display: none; }
+  .github {
+    color: black;
+    font-size: 35px !important;
+    right: 45px !important; } }
+
+@media screen and (min-width: 851px) and (max-width: 1470px) {
+  .index .example .preview iframe {
+    width: 75%; }
+  .pages header {
+    position: absolute; } }
+
+@media screen and (max-width: 850px) {
+  .index .example .preview iframe {
+    width: 95%; }
+  .index ul.features li,
+  .index ul.features li:nth-child(2n+1) {
+    flex-direction: column; }
+    .index ul.features li div[class^="image-"],
+    .index ul.features li:nth-child(2n+1) div[class^="image-"] {
+      background-position: 50% 50%;
+      flex-basis: auto; }
+    .index ul.features li .image-virtualize,
+    .index ul.features li:nth-child(2n+1) .image-virtualize {
+      background-size: 112px 121px; }
+    .index ul.features li .image-css,
+    .index ul.features li:nth-child(2n+1) .image-css {
+      background-size: 148.5px 71px; }
+    .index ul.features li .image-js,
+    .index ul.features li:nth-child(2n+1) .image-js {
+      background-size: 100px 100px; }
+    .index ul.features li .image-custom,
+    .index ul.features li:nth-child(2n+1) .image-custom {
+      background-size: 115px 98px; }
+    .index ul.features li .description,
+    .index ul.features li:nth-child(2n+1) .description {
+      flex-basis: auto;
+      text-align: center; }
+      .index ul.features li .description p,
+      .index ul.features li:nth-child(2n+1) .description p {
+        text-align: center;
+        position: relative;
+        max-width: none;
+        margin-right: 20px;
+        margin-left: 20px; }
+  .pages main {
+    margin-left: 0; }
+  .pages .page-wrapper {
+    margin: 0 20px 40px 20px; }
+    .pages .page-wrapper h1:first-child {
+      margin-top: 80px;
+      font-size: 40px; }
+    .pages .page-wrapper h2 {
+      font-size: 1.5em; }
+    .pages .page-wrapper .github-link2 {
+      border: none; }
+      .pages .page-wrapper .github-link2 span {
+        display: none; }
+  .pages header {
+    display: block; }
+    .pages header .logo-wrapper {
+      margin: 0;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      top: 17px;
+      z-index: -1; }
+      .pages header .logo-wrapper .logo {
+        font-size: 31px;
+        margin: 0; }
+  .pages .nav-trigger {
+    display: block; }
+  .pages #nav {
+    display: none;
+    padding-top: 0;
+    z-index: 12; }
+    .pages #nav nav {
+      height: calc(100% - 95px); }
+    .pages #nav .logo {
+      display: none; } }
+
+@media screen and (max-width: 540px) {
+  .index main .get-started h1 {
+    font-size: 22px;
+    line-height: 22px; }
+  .index main .get-started h2 {
+    font-size: 18px;
+    line-height: 18px; }
+  .index main .get-started .frameworks li {
+    font-size: 2.5em;
+    margin-bottom: 10px; } }
+
+::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em; }
+
+::-webkit-scrollbar-thumb {
+  background: #649EED; }
+
+::-webkit-scrollbar-track {
+  background: #b2cff6; }
+
+body {
+  scrollbar-face-color: #649EED;
+  scrollbar-track-color: #b2cff6; }
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 14px; }
+
+body {
+  background: #fff; }
+
+.index {
+  font-family: "Roboto Slab", serif; }
+  .index main {
+    display: flex;
+    flex-flow: column wrap;
+    background: #fff;
+    color: #333; }
+  .index footer {
+    color: #fff;
+    background: #111;
+    padding: 50px 0;
+    text-align: center;
+    font-family: "Roboto Slab", serif;
+    font-size: 18px;
+    font-weight: 200; }
+    .index footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: 400; }
+  .index .go-to a {
+    text-decoration: none;
+    vertical-align: middle;
+    background-color: #0078CF;
+    color: white;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: normal;
+    padding: 18px;
+    width: 248px; }
+    .index .go-to a:hover {
+      background-color: #0069b6; }
+  .index .features {
+    margin-bottom: 45px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap; }
+    .index .features li {
+      flex-flow: row wrap;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      flex: 1 1 auto;
+      margin-bottom: 55px; }
+      .index .features li .description {
+        flex: 1 50%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: left;
+        padding-left: 0;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        position: relative; }
+        .index .features li .description p {
+          max-width: 400px;
+          position: absolute;
+          margin-bottom: 0; }
+      .index .features li div[class^="image-"] {
+        background-position: calc(100% - 70px) 0; }
+      .index .features li:nth-child(2n+1) {
+        flex-direction: row-reverse; }
+        .index .features li:nth-child(2n+1) .description {
+          text-align: right;
+          padding-right: 0; }
+          .index .features li:nth-child(2n+1) .description p {
+            text-align: right;
+            position: absolute;
+            right: 0; }
+        .index .features li:nth-child(2n+1) div[class^="image-"] {
+          background-position: 70px 0; }
+  .index .get-started {
+    background-color: #353535;
+    text-align: center;
+    color: #fff;
+    padding: 40px 0 0 0; }
+    .index .get-started .qgrid-logo {
+      margin-bottom: 65px;
+      margin-top: 30px; }
+    .index .get-started h1,
+    .index .get-started h2 {
+      margin: 0;
+      font-weight: normal; }
+    .index .get-started h1 {
+      font-size: 2em;
+      line-height: 2em; }
+    .index .get-started h2 {
+      font-size: 1.714em;
+      line-height: 1.714em;
+      margin-bottom: 10px; }
+    .index .get-started .frameworks {
+      list-style: none;
+      padding: 0;
+      margin: 67px 0 120px 0;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-content: center; }
+      .index .get-started .frameworks li {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 11px;
+        font-size: 4.5em; }
+        .index .get-started .frameworks li > a {
+          text-decoration: none;
+          color: white; }
+        .index .get-started .frameworks li:last-child {
+          margin-right: 0; }
+        .index .get-started .frameworks li span {
+          color: white; }
+        .index .get-started .frameworks li label {
+          display: block;
+          padding: 5px 10px;
+          border-radius: 11px;
+          width: 100px;
+          font-size: 10px;
+          font-family: "Roboto", Helvetica, Arial, sans-serif;
+          text-transform: uppercase;
+          line-height: 11px;
+          background-color: #0078CF;
+          color: rgba(255, 255, 255, 0.5); }
+        .index .get-started .frameworks li.ready label {
+          color: white;
+          cursor: pointer; }
+        .index .get-started .frameworks li.ready:hover label {
+          background-color: #0069b6; }
+  .index .example {
+    margin-top: -50px;
+    align-items: center;
+    margin-bottom: 100px; }
+    .index .example .preview {
+      flex-flow: row wrap;
+      display: flex;
+      justify-content: center;
+      overflow: hidden; }
+    .index .example iframe {
+      margin-top: -38px;
+      height: 670px;
+      width: 60%;
+      border: 1px solid rgba(0, 0, 0, 0.1); }
+  .index .go-to {
+    text-align: center;
+    margin-bottom: 100px;
+    font-size: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; }
+    .index .go-to a {
+      margin: 5px; }
