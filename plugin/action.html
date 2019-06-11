@@ -116,7 +116,7 @@
         
                         </li>
         
-                            <li data-tag="How to change column header template,How to change cell editor template,Suggested Links" class=" ">
+                            <li data-tag="How to change column header template,How to change cell editor template,How to change aggregation template in the column footer,Suggested Links" class=" ">
         
                             <a class="title" href="/feature/cell-templates.html">Cell Templates</a>
         
@@ -134,7 +134,7 @@
         
                         </li>
         
-                            <li data-tag="How to prevent column order affect on sorting" class=" ">
+                            <li data-tag="How to prevent column order affect on sorting,How to change default column sorting,How to allow to sort only by one column at the same time" class=" ">
         
                             <a class="title" href="/feature/sorting.html">Sorting</a>
         
@@ -152,13 +152,13 @@
         
                         </li>
         
-                            <li data-tag="How to expand expand or collapse all row details,How to disable expand button" class=" ">
+                            <li data-tag="How to expand expand or collapse all row details,How to disable/hide expand button,How to show nested q-grid in details template" class=" ">
         
                             <a class="title" href="/feature/row-details.html">Row Details</a>
         
                         </li>
         
-                            <li data-tag="How to access edit events in q-grid,How to change edit shortcuts,How to enable batch edit,How to reset edit mode,How to disable edit mode for the particular column" class=" ">
+                            <li data-tag="How to access edit events in q-grid,How to change edit shortcuts,How to enable batch edit,How to reset edit mode,How to disable edit mode for the particular column,How to add a new row to the end,How to add delete button and implement row deletion,How to detect if any data was changed by user input,Suggested Links" class=" ">
         
                             <a class="title" href="/feature/editing.html">Editing</a>
         
@@ -176,7 +176,7 @@
         
                         </li>
         
-                            <li data-tag="How to apply auto focus in q-grid" class=" ">
+                            <li data-tag="How to apply auto focus in q-grid,How to focus the last row" class=" ">
         
                             <a class="title" href="/feature/focus.html">Focusing</a>
         
@@ -200,6 +200,12 @@
         
                         </li>
         
+                            <li data-tag class=" ">
+        
+                            <a class="title" href="/feature/master-details.html">Master-Details</a>
+        
+                        </li>
+        
                             <li data-tag="How to implement infinite scroll" class=" ">
         
                             <a class="title" href="/feature/virtualization.html">Virtualization</a>
@@ -208,7 +214,7 @@
         
                     <li><h3>Column Types</h3></li>
         
-                            <li data-tag="Column Type,Column Key,Column Title,Column Description,Column Value & Label,Column Path & LabelPath,Column Pin,Column Class,Column Editor & EditorOptions,Column Width, MaxWidth & MinWidth,Column WidthMode,Column ViewWidth,Column Indicators,Column Index ,Column Compare,Column Children,Column Aggregation,How to show tooltip in column header" class=" ">
+                            <li data-tag="Column Type,Column Key,Column Title,Column Description,Column Value & Label,Column Path & LabelPath,Column Pin,Column Class,Column Editor & EditorOptions,Column Width, MaxWidth & MinWidth,Column WidthMode,Column ViewWidth,Column Indicators,Column Index ,Column Compare,Column Children,Column Aggregation,Aggregation Options,How to show tooltip in column header" class=" ">
         
                             <a class="title" href="/column-type/grid-column.html">Grid Column</a>
         
@@ -262,7 +268,7 @@
         
                         </li>
         
-                            <li data-tag="Default template" class=" ">
+                            <li data-tag="Default template,How to open row options menu on enter pressed,Suggested Links" class=" ">
         
                             <a class="title" href="/column-type/row-options-column.html">Row Options</a>
         
@@ -496,12 +502,12 @@
 
          &lt;q-grid-actions>
             &lt;q-grid-action icon="refresh"
-                                title="Load Data"
-                                [command]="loadCommand">
+                           title="Load Data"
+                           [command]="loadCommand">
               &lt;/q-grid-action>
               &lt;q-grid-action icon="clear_all"
-                                title="Delete Data"
-                                [command]="clearCommand">
+                             title="Delete Data"
+                             [command]="clearCommand">
               &lt;/q-grid-action>           
          &lt;/q-grid-actions>
     &lt;/q-grid>

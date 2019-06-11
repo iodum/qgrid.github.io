@@ -5,17 +5,17 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <title>
-        Visibility — q-grid</title>
+        Master-Details — q-grid</title>
     <meta charset="utf-8">
     <meta name="description" content="qgrid - Framework for creating data grids">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Visibility — qgrid">
+    <meta property="og:title" content="Master-Details — qgrid">
     <meta property="og:description" content>
     <meta property="og:image" content="https:////images/logo.png">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Visibility — qgrid">
+    <meta name="twitter:title" content="Master-Details — qgrid">
     <meta name="twitter:description" content>
     <meta name="twitter:image" content="https:///assets/logo.png">
 
@@ -194,15 +194,15 @@
         
                         </li>
         
-                            <li data-tag class="active-topic ">
+                            <li data-tag class=" ">
         
-                            <span>Visibility</span>
+                            <a class="title" href="/feature/visibility.html">Visibility</a>
         
                         </li>
         
-                            <li data-tag class=" ">
+                            <li data-tag class="active-topic ">
         
-                            <a class="title" href="/feature/master-details.html">Master-Details</a>
+                            <span>Master-Details</span>
         
                         </li>
         
@@ -468,41 +468,53 @@
 
 <main>
     <div class="page-wrapper">
-    <h1>Visibility</h1>
-    <p>Use <code>visibility</code> model to show or hide areas of the q-grid.</p>
+    <h1>Master-Details</h1>
+    <p>Use master selection event to filter out rows of details grid.</p>
 <pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-   selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
+   selector<span class="token punctuation">:</span> <span class="token string">'example-master-details-basic'</span><span class="token punctuation">,</span>
    template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
-      &lt;q-grid [rows]="rows$ | async">
+      &lt;q-grid #master
+              [rows]="masterRows$ | async">
          &lt;q-grid-columns generation="deep">&lt;/q-grid-columns>
       &lt;/q-grid>
-   `</span></span>
+
+      &lt;q-grid [rows]="detailsRows$ | async">
+         &lt;q-grid-columns generation="deep">&lt;/q-grid-columns>
+      &lt;/q-grid>
+   `</span></span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">implements</span> <span class="token class-name">AfterViewInit</span> <span class="token punctuation">{</span>
-   @<span class="token function">ViewChild</span><span class="token punctuation">(</span>GridComponent<span class="token punctuation">)</span> myGrid<span class="token punctuation">:</span> GridComponent<span class="token punctuation">;</span>   
-   rows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">ExampleMasterDetailsBasicComponent</span> <span class="token punctuation">{</span>
+   @<span class="token function">ViewChild</span><span class="token punctuation">(</span><span class="token string">'master'</span><span class="token punctuation">)</span> masterGrid<span class="token punctuation">:</span> GridComponent
+
+   masterRows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span>Human<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
+   detailsRows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span>Human<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
 
    <span class="token keyword">constructor</span><span class="token punctuation">(</span>dataService<span class="token punctuation">:</span> MyDataService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>rows$ <span class="token operator">=</span> dataService<span class="token punctuation">.</span><span class="token function">getRows</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>masterRows$ <span class="token operator">=</span> dataService<span class="token punctuation">.</span><span class="token function">getPeople</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">}</span>
 
    <span class="token function">ngAfterViewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">const</span> <span class="token punctuation">{</span> model <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>myGrid<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> model <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>masterGrid<span class="token punctuation">;</span>
 
-      model<span class="token punctuation">.</span><span class="token function">visibility</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-         head<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
-         foot<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
-         body<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
-         toolbar<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            top<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
-            bottom<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
-            right<span class="token punctuation">:</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
-            left<span class="token punctuation">:</span> <span class="token keyword">false</span>
+      model<span class="token punctuation">.</span>selectionChanged<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+         <span class="token keyword">const</span> items <span class="token operator">=</span> e<span class="token punctuation">.</span>state<span class="token punctuation">.</span>items<span class="token punctuation">;</span>
+         <span class="token keyword">if</span> <span class="token punctuation">(</span>items<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> <span class="token punctuation">{</span> likes <span class="token punctuation">}</span> <span class="token operator">=</span> items<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">this</span><span class="token punctuation">.</span>detailsRows <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>dataService
+               <span class="token punctuation">.</span><span class="token function">getPeople</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+               <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+                  <span class="token function">map</span><span class="token punctuation">(</span>humans <span class="token operator">=</span><span class="token operator">></span> humans<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>human <span class="token operator">=</span><span class="token operator">></span> likes<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span>like <span class="token operator">=</span><span class="token operator">></span> human<span class="token punctuation">.</span>likes<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>like<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+               <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
          <span class="token punctuation">}</span>
       <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+    <span class="editor">
+      <iframe data-src="//stackblitz.com/github/qgrid/ng2-example/tree/master-details-basic/latest?embed=1&file=app/app.component.ts&hideExplorer=1&hideNavigation=1&hidedevtools=1&view=preview"></iframe>
+    </span>
 
 </div>
 

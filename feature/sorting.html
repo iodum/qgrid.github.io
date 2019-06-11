@@ -116,7 +116,7 @@
         
                         </li>
         
-                            <li data-tag="How to change column header template,How to change cell editor template,Suggested Links" class=" ">
+                            <li data-tag="How to change column header template,How to change cell editor template,How to change aggregation template in the column footer,Suggested Links" class=" ">
         
                             <a class="title" href="/feature/cell-templates.html">Cell Templates</a>
         
@@ -134,7 +134,7 @@
         
                         </li>
         
-                            <li data-tag="How to prevent column order affect on sorting" class="active-topic ">
+                            <li data-tag="How to prevent column order affect on sorting,How to change default column sorting,How to allow to sort only by one column at the same time" class="active-topic ">
         
                             <span>Sorting</span>
         
@@ -152,13 +152,13 @@
         
                         </li>
         
-                            <li data-tag="How to expand expand or collapse all row details,How to disable expand button" class=" ">
+                            <li data-tag="How to expand expand or collapse all row details,How to disable/hide expand button,How to show nested q-grid in details template" class=" ">
         
                             <a class="title" href="/feature/row-details.html">Row Details</a>
         
                         </li>
         
-                            <li data-tag="How to access edit events in q-grid,How to change edit shortcuts,How to enable batch edit,How to reset edit mode,How to disable edit mode for the particular column" class=" ">
+                            <li data-tag="How to access edit events in q-grid,How to change edit shortcuts,How to enable batch edit,How to reset edit mode,How to disable edit mode for the particular column,How to add a new row to the end,How to add delete button and implement row deletion,How to detect if any data was changed by user input,Suggested Links" class=" ">
         
                             <a class="title" href="/feature/editing.html">Editing</a>
         
@@ -176,7 +176,7 @@
         
                         </li>
         
-                            <li data-tag="How to apply auto focus in q-grid" class=" ">
+                            <li data-tag="How to apply auto focus in q-grid,How to focus the last row" class=" ">
         
                             <a class="title" href="/feature/focus.html">Focusing</a>
         
@@ -200,6 +200,12 @@
         
                         </li>
         
+                            <li data-tag class=" ">
+        
+                            <a class="title" href="/feature/master-details.html">Master-Details</a>
+        
+                        </li>
+        
                             <li data-tag="How to implement infinite scroll" class=" ">
         
                             <a class="title" href="/feature/virtualization.html">Virtualization</a>
@@ -208,7 +214,7 @@
         
                     <li><h3>Column Types</h3></li>
         
-                            <li data-tag="Column Type,Column Key,Column Title,Column Description,Column Value & Label,Column Path & LabelPath,Column Pin,Column Class,Column Editor & EditorOptions,Column Width, MaxWidth & MinWidth,Column WidthMode,Column ViewWidth,Column Indicators,Column Index ,Column Compare,Column Children,Column Aggregation,How to show tooltip in column header" class=" ">
+                            <li data-tag="Column Type,Column Key,Column Title,Column Description,Column Value & Label,Column Path & LabelPath,Column Pin,Column Class,Column Editor & EditorOptions,Column Width, MaxWidth & MinWidth,Column WidthMode,Column ViewWidth,Column Indicators,Column Index ,Column Compare,Column Children,Column Aggregation,Aggregation Options,How to show tooltip in column header" class=" ">
         
                             <a class="title" href="/column-type/grid-column.html">Grid Column</a>
         
@@ -262,7 +268,7 @@
         
                         </li>
         
-                            <li data-tag="Default template" class=" ">
+                            <li data-tag="Default template,How to open row options menu on enter pressed,Suggested Links" class=" ">
         
                             <a class="title" href="/column-type/row-options-column.html">Row Options</a>
         
@@ -504,12 +510,49 @@
 
    <span class="token function">ngAfterViewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">const</span> <span class="token punctuation">{</span> model <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>myGrid<span class="token punctuation">;</span>
+
       model<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
          resetTrigger<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> 
       <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="How-to-change-default-column-sorting"><a href="#How-to-change-default-column-sorting" class="headerlink" title="How to change default column sorting?"></a>How to change default column sorting?</h2><p>Each column has <code>compare</code> property that can be overridden to change sort algorithm.</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
+   template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
+      &lt;q-grid>
+         &lt;q-grid-columns>
+            &lt;q-grid-column key="myNumberColumn" 
+                           [compare]="myCompare">
+            &lt;/q-grid-column>
+         &lt;/q-grid-columns>
+      &lt;/q-grid>
+   `</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
+   <span class="token function">myCompare</span><span class="token punctuation">(</span>a<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> a <span class="token operator">-</span> b<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="How-to-allow-to-sort-only-by-one-column-at-the-same-time"><a href="#How-to-allow-to-sort-only-by-one-column-at-the-same-time" class="headerlink" title="How to allow to sort only by one column at the same time?"></a>How to allow to sort only by one column at the same time?</h2><p>Set sort <code>mode</code> equals to <code>single</code>.</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
+   template<span class="token punctuation">:</span> <span class="token string">'&lt;q-grid>&lt;/q-grid>'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">implements</span> <span class="token class-name">AfterViewInit</span> <span class="token punctuation">{</span>
+   @<span class="token function">ViewChild</span><span class="token punctuation">(</span>GridComponent<span class="token punctuation">)</span> myGrid<span class="token punctuation">:</span> GridComponent<span class="token punctuation">;</span>   
+
+   <span class="token function">ngAfterViewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> model <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>myGrid<span class="token punctuation">;</span>
+
+      model<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+         mode<span class="token punctuation">:</span> <span class="token string">'single'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </div>
 

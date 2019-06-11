@@ -116,7 +116,7 @@
         
                         </li>
         
-                            <li data-tag="How to change column header template,How to change cell editor template,Suggested Links" class=" ">
+                            <li data-tag="How to change column header template,How to change cell editor template,How to change aggregation template in the column footer,Suggested Links" class=" ">
         
                             <a class="title" href="/feature/cell-templates.html">Cell Templates</a>
         
@@ -134,7 +134,7 @@
         
                         </li>
         
-                            <li data-tag="How to prevent column order affect on sorting" class=" ">
+                            <li data-tag="How to prevent column order affect on sorting,How to change default column sorting,How to allow to sort only by one column at the same time" class=" ">
         
                             <a class="title" href="/feature/sorting.html">Sorting</a>
         
@@ -152,13 +152,13 @@
         
                         </li>
         
-                            <li data-tag="How to expand expand or collapse all row details,How to disable expand button" class=" ">
+                            <li data-tag="How to expand expand or collapse all row details,How to disable/hide expand button,How to show nested q-grid in details template" class=" ">
         
                             <a class="title" href="/feature/row-details.html">Row Details</a>
         
                         </li>
         
-                            <li data-tag="How to access edit events in q-grid,How to change edit shortcuts,How to enable batch edit,How to reset edit mode,How to disable edit mode for the particular column" class=" ">
+                            <li data-tag="How to access edit events in q-grid,How to change edit shortcuts,How to enable batch edit,How to reset edit mode,How to disable edit mode for the particular column,How to add a new row to the end,How to add delete button and implement row deletion,How to detect if any data was changed by user input,Suggested Links" class=" ">
         
                             <a class="title" href="/feature/editing.html">Editing</a>
         
@@ -176,7 +176,7 @@
         
                         </li>
         
-                            <li data-tag="How to apply auto focus in q-grid" class=" ">
+                            <li data-tag="How to apply auto focus in q-grid,How to focus the last row" class=" ">
         
                             <a class="title" href="/feature/focus.html">Focusing</a>
         
@@ -200,6 +200,12 @@
         
                         </li>
         
+                            <li data-tag class=" ">
+        
+                            <a class="title" href="/feature/master-details.html">Master-Details</a>
+        
+                        </li>
+        
                             <li data-tag="How to implement infinite scroll" class=" ">
         
                             <a class="title" href="/feature/virtualization.html">Virtualization</a>
@@ -208,7 +214,7 @@
         
                     <li><h3>Column Types</h3></li>
         
-                            <li data-tag="Column Type,Column Key,Column Title,Column Description,Column Value & Label,Column Path & LabelPath,Column Pin,Column Class,Column Editor & EditorOptions,Column Width, MaxWidth & MinWidth,Column WidthMode,Column ViewWidth,Column Indicators,Column Index ,Column Compare,Column Children,Column Aggregation,How to show tooltip in column header" class="active-topic ">
+                            <li data-tag="Column Type,Column Key,Column Title,Column Description,Column Value & Label,Column Path & LabelPath,Column Pin,Column Class,Column Editor & EditorOptions,Column Width, MaxWidth & MinWidth,Column WidthMode,Column ViewWidth,Column Indicators,Column Index ,Column Compare,Column Children,Column Aggregation,Aggregation Options,How to show tooltip in column header" class="active-topic ">
         
                             <span>Grid Column</span>
         
@@ -262,7 +268,7 @@
         
                         </li>
         
-                            <li data-tag="Default template" class=" ">
+                            <li data-tag="Default template,How to open row options menu on enter pressed,Suggested Links" class=" ">
         
                             <a class="title" href="/column-type/row-options-column.html">Row Options</a>
         
@@ -467,7 +473,7 @@
 <h2 id="Column-Type"><a href="#Column-Type" class="headerlink" title="Column Type"></a>Column Type</h2><p>Column type is responsible for how the cell is drawn and how it behaves. Beside out of box column types it’s possible to define own.  Note that some of supported column types are utilized for internal needs.</p>
 <h2 id="Column-Key"><a href="#Column-Key" class="headerlink" title="Column Key"></a>Column Key</h2><p>A column unique identifier, used to retrieve cell values if <code>path</code> or <code>value</code> properties are not setup for the column.</p>
 <h2 id="Column-Title"><a href="#Column-Title" class="headerlink" title="Column Title"></a>Column Title</h2><p>Column header text also could be used by plugins like column-filter.</p>
-<h2 id="Column-Description"><a href="#Column-Description" class="headerlink" title="Column Description"></a>Column Description</h2><p>Column header tooltip text, could be shown as column tooltip.</p>
+<h2 id="Column-Description"><a href="#Column-Description" class="headerlink" title="Column Description"></a>Column Description</h2><p>Column header tooltip text could be shown as a column tooltip.</p>
 <h2 id="Column-Value-amp-Label"><a href="#Column-Value-amp-Label" class="headerlink" title="Column Value &amp; Label"></a>Column Value &amp; Label</h2><p>The callback or some constant could be used to retrieve or setup the cell value/label.</p>
 <pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
@@ -527,7 +533,7 @@
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-columns</span><span class="token punctuation">></span></span>      
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>site<span class="token punctuation">"</span></span>
                      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span>
-                       <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Edit on click<span class="token punctuation">"</span></span>
+                     <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Edit on click<span class="token punctuation">"</span></span>
                      <span class="token attr-name">[editorOptions]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{trigger: <span class="token punctuation">'</span>click<span class="token punctuation">'</span>}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-column</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
@@ -588,14 +594,25 @@
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="How-to-show-tooltip-in-column-header"><a href="#How-to-show-tooltip-in-column-header" class="headerlink" title="How to show tooltip in column header?"></a>How to show tooltip in column header?</h2><p>Use description property of the column.</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span><span class="token punctuation">></span></span>
+<h2 id="Aggregation-Options"><a href="#Aggregation-Options" class="headerlink" title="Aggregation Options"></a>Aggregation Options</h2><p>Use <code>distinct</code> and <code>separator</code> settings to change column aggregation template.</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span> <span class="token attr-name">[rows]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>rows$ | async<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-columns</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-column<span class="token punctuation">"</span></span> <span class="token attr-name">description</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Will be shown in tooltip<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>phase<span class="token punctuation">"</span></span>
+                     <span class="token attr-name">aggregation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>join<span class="token punctuation">"</span></span>
+                     <span class="token attr-name">[aggregationOptions]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{separator: <span class="token punctuation">'</span>+<span class="token punctuation">'</span>, distinct: true}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-column</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="How-to-show-tooltip-in-column-header"><a href="#How-to-show-tooltip-in-column-header" class="headerlink" title="How to show tooltip in column header?"></a>How to show tooltip in column header?</h2><p>Use description property in the column.</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-columns</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-column<span class="token punctuation">"</span></span> 
+                     <span class="token attr-name">description</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Will be shown in tooltip<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-column</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </div>
 
