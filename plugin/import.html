@@ -67,6 +67,7 @@
 </div>
 
 <a target="_blank" href="https://github.com/qgrid/ng2" class="github"></a>
+<a target="_blank" href="https://qgrid.github.io/ng2" class="backbone"></a>
 
 </header>
 
@@ -382,13 +383,13 @@
         
                             <li data-tag="Installation,Suggested Links" class=" ">
         
-                            <a class="title" href="/plugin/autocomplete.html">Autocomplete</a>
+                            <a class="title" href="/plugin/dropdown.html">Dropdown</a>
         
                         </li>
         
                             <li data-tag="Installation,Suggested Links" class=" ">
         
-                            <a class="title" href="/plugin/dropdown.html">Dropdown</a>
+                            <a class="title" href="/plugin/autocomplete.html">Autocomplete</a>
         
                         </li>
         
@@ -470,21 +471,23 @@
     <div class="page-wrapper">
     <h1>Import from file</h1>
     <p>Use q-grid import plugin to fill in rows with data from files on client side.</p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Add import module to imports section.</p>
-<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> GridModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ng2-qgrid'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ThemeModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ng2-qgrid/theme/material'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ImportModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ng2-qgrid/plugin/import'</span><span class="token punctuation">;</span>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><!-- Add import module to imports section.
 
-@<span class="token function">NgModule</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-   imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-      GridModule<span class="token punctuation">,</span>
-      ThemeModule<span class="token punctuation">,</span>
+```typescript
+import { GridModule } from 'ng2-qgrid';
+import { ThemeModule } from 'ng2-qgrid/theme/material';
+import { ImportModule } from 'ng2-qgrid/plugin/import';
+
+@NgModule({
+   imports: [
+      GridModule,
+      ThemeModule,
       ImportModule
-   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppModule</span> <span class="token punctuation">{</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   ]
+})
+export class AppModule {
+}
+``` -->
 <p>Add angular component inside of q-grid component, after that a new action should appear.</p>
 <pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
    selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
