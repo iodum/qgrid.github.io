@@ -99,7 +99,7 @@
         
                     <li><h3>Features</h3></li>
         
-                            <li data-tag="How to setup rows using q-grid model,How to make rows frozen,How to enable row resizing and drag & drop" class=" ">
+                            <li data-tag="How to setup rows using q-grid model,How to make rows frozen/pinned,How to enable row resizing and drag & drop" class=" ">
         
                             <a class="title" href="/feature/data-rows.html">Data Rows</a>
         
@@ -159,7 +159,7 @@
         
                         </li>
         
-                            <li data-tag="How to access edit events in q-grid,How to change edit shortcuts,How to enable batch edit,How to reset edit mode,How to disable edit mode for the particular column,How to add a new row to the end,How to add delete button and implement row deletion,How to detect if any data was changed by user input,Suggested Links" class="active-topic ">
+                            <li data-tag="How to access edit events in q-grid,How to change edit shortcuts,How to enable batch edit,How to reset edit mode,How to disable edit mode for the particular column,How to add a new row to the end,How to add delete button and implement row deletion,How to prevent value change it it empty,How to enter or exit edit mode,Suggested Links" class="active-topic ">
         
                             <span>Editing</span>
         
@@ -383,19 +383,25 @@
         
                             <li data-tag="Installation,Suggested Links" class=" ">
         
-                            <a class="title" href="/plugin/dropdown.html">Dropdown</a>
+                            <a class="title" href="/plugin/autocomplete.html">Autocomplete</a>
         
                         </li>
         
-                            <li data-tag="Installation,Suggested Links" class=" ">
+                            <li data-tag="Installation,How to show labels in dropdown list,Suggested Links" class=" ">
         
-                            <a class="title" href="/plugin/autocomplete.html">Autocomplete</a>
+                            <a class="title" href="/plugin/dropdown.html">Dropdown</a>
         
                         </li>
         
                             <li data-tag="Installation" class=" ">
         
                             <a class="title" href="/plugin/edit-form.html">Edit Form</a>
+        
+                        </li>
+        
+                            <li data-tag="Installation,How to open pane manually without trigger" class=" ">
+        
+                            <a class="title" href="/plugin/pane.html">Pane</a>
         
                         </li>
         
@@ -640,17 +646,26 @@
    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="How-to-detect-if-any-data-was-changed-by-user-input"><a href="#How-to-detect-if-any-data-was-changed-by-user-input" class="headerlink" title="How to detect if any data was changed by user input?"></a>How to detect if any data was changed by user input?</h2><p>Use <code>commit</code> command to track if any data was changed by user input.</p>
+<h2 id="How-to-prevent-value-change-it-it-empty"><a href="#How-to-prevent-value-change-it-it-empty" class="headerlink" title="How to prevent value change it it empty?"></a>How to prevent value change it it empty?</h2><p>Use <code>canExecute</code> method in <code>commit</code> command to decide if cell value should be changed.</p>
 <pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token function">ngAfterViewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
    <span class="token keyword">const</span> <span class="token punctuation">{</span> model <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>myGrid<span class="token punctuation">;</span>
 
    model<span class="token punctuation">.</span><span class="token function">edit</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
       commit<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Command</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-         execute<span class="token punctuation">:</span> e <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>newValue<span class="token punctuation">)</span>
+         canExecute<span class="token punctuation">:</span> e <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">!</span><span class="token operator">!</span>e<span class="token punctuation">.</span>newValue
       <span class="token punctuation">}</span><span class="token punctuation">)</span>
    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="How-to-enter-or-exit-edit-mode"><a href="#How-to-enter-or-exit-edit-mode" class="headerlink" title="How to enter or exit edit mode?"></a>How to enter or exit edit mode?</h2><p>Use <code>state</code> property in edit model. Use <code>view</code> or <code>edit</code> to define mode. </p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token function">ngAfterViewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">const</span> <span class="token punctuation">{</span> model <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>myGrid<span class="token punctuation">;</span>
+
+   model<span class="token punctuation">.</span><span class="token function">edit</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      state<span class="token punctuation">:</span> <span class="token string">'edit'</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Suggested-Links"><a href="#Suggested-Links" class="headerlink" title="Suggested Links"></a>Suggested Links</h2><ul>
 <li><a href="/plugin/data-manipulation.md">Data manipulation plugin</a></li>
 </ul>

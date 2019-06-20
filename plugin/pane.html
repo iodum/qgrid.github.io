@@ -5,17 +5,17 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <title>
-        Select — q-grid</title>
+        Pane — q-grid</title>
     <meta charset="utf-8">
     <meta name="description" content="qgrid - Framework for creating data grids">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Select — qgrid">
+    <meta property="og:title" content="Pane — qgrid">
     <meta property="og:description" content>
     <meta property="og:image" content="https:////images/logo.png">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Select — qgrid">
+    <meta name="twitter:title" content="Pane — qgrid">
     <meta name="twitter:description" content>
     <meta name="twitter:image" content="https:///assets/logo.png">
 
@@ -50,7 +50,7 @@
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/menu.js"></script>
     <script src="/js/lazy.js"></script>
-    <script>window.PAGE_TYPE = "Column Types"</script>
+    <script>window.PAGE_TYPE = "Plugins"</script>
 
 <link rel="stylesheet" href="/css/prism-vs.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
@@ -275,9 +275,9 @@
         
                         </li>
         
-                            <li data-tag="Default template" class="active-topic ">
+                            <li data-tag="Default template" class=" ">
         
-                            <span>Select</span>
+                            <a class="title" href="/column-type/select-column.html">Select</a>
         
                         </li>
         
@@ -399,9 +399,9 @@
         
                         </li>
         
-                            <li data-tag="Installation,How to open pane manually without trigger" class=" ">
+                            <li data-tag="Installation,How to open pane manually without trigger" class="active-topic ">
         
-                            <a class="title" href="/plugin/pane.html">Pane</a>
+                            <span>Pane</span>
         
                         </li>
         
@@ -475,31 +475,96 @@
 
 <main>
     <div class="page-wrapper">
-    <h1>Select</h1>
-    <p>This is a basic data column type that is responsible for handling textual values.</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-columns</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>select<span class="token punctuation">"</span></span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>isSelected<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-column</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Default-template"><a href="#Default-template" class="headerlink" title="Default template"></a>Default template</h2><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-columns</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>select<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng-template</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>body<span class="token punctuation">"</span></span> <span class="token attr-name">let-$cell</span> <span class="token attr-name">let-$view</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>$view<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mat-checkbox</span> <span class="token attr-name">[indeterminate]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>$view.selection.isIndeterminate($cell.row)<span class="token punctuation">"</span></span>
-                             <span class="token attr-name">[checked]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>$view.selection.state($cell.row)<span class="token punctuation">"</span></span>
-                             <span class="token attr-name">[disabled]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>!$view.selection.toggleRow.canExecute($cell.row)<span class="token punctuation">"</span></span>
-                             <span class="token attr-name">(change)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>$view.selection.toggleRow.execute($cell.row)<span class="token punctuation">"</span></span>
-                             <span class="token attr-name">tabindex</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>-1<span class="token punctuation">"</span></span>                              
-                             <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>q-grid-checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mat-checkbox</span><span class="token punctuation">></span></span>
-         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng-template</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-column</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <h1>Pane</h1>
+    <p>To show custom panels inside q-grid use <code>q-grid-pane</code> plugin.</p>
+
+    <span class="editor">
+      <iframe data-src="//stackblitz.com/github/qgrid/ng2-example/tree/pane-basic/latest?embed=1&file=app/app.component.ts&hideExplorer=1&hideNavigation=1&hidedevtools=1&view=preview"></iframe>
+    </span>
+
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><!-- Add pane module to imports section.
+
+```typescript
+import { GridModule } from 'ng2-qgrid';
+import { ThemeModule } from 'ng2-qgrid/theme/material';
+import { PaneModule } from 'ng2-qgrid/plugin/pane';
+
+@NgModule({
+   imports: [
+      GridModule,
+      ThemeModule,
+      PaneModule
+   ]
+})
+export class AppModule {
+}
+``` -->
+<p>Add angular component inside of q-grid component and override legend template regarding to the task.</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
+   template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
+      &lt;q-grid [rows]="rows$ | async">
+         &lt;q-grid-columns generation="deep">
+         &lt;/q-grid-columns>
+
+         &lt;q-grid-pane trigger="selection.items">
+            &lt;ng-template for="right"
+                     let-$pane
+                     let-$cell="cell">
+               &lt;button (click)="$pane.close('right')">
+                  Close
+               &lt;/button>
+
+               &lt;h2>{{$cell.row.fullName}}&lt;/h2>
+            &lt;/ng-template>
+         &lt;/q-grid-pane>
+&lt;/q-grid>
+   `</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
+   rows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
+
+   <span class="token keyword">constructor</span><span class="token punctuation">(</span>dataService<span class="token punctuation">:</span> MyDataService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>rows$ <span class="token operator">=</span> dataService<span class="token punctuation">.</span><span class="token function">getRows</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="How-to-open-pane-manually-without-trigger"><a href="#How-to-open-pane-manually-without-trigger" class="headerlink" title="How to open pane manually without trigger?"></a>How to open pane manually without trigger?</h2><p>Get access to <code>PaneComponent</code> and use <code>open</code> or <code>close</code> method.</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
+   template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
+      &lt;q-grid [rows]="rows$ | async">
+         &lt;q-grid-columns generation="deep">
+         &lt;/q-grid-columns>
+
+         &lt;q-grid-actions>
+            &lt;q-grid-action icon="details"
+                           title="Open Pane"
+                           [command]="openPane">
+            &lt;/q-grid-action>
+         &lt;/q-grid-actions>
+
+        &lt;q-grid-pane>
+            &lt;ng-template for="right">
+               Hello!
+            &lt;/ng-template>
+         &lt;/q-grid-pane>
+      &lt;/q-grid>
+   `</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
+    @<span class="token function">ViewChild</span><span class="token punctuation">(</span>PaneComponent<span class="token punctuation">)</span> pane<span class="token punctuation">:</span> PaneComponent<span class="token punctuation">;</span>
+    rows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span>Human<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
+
+    openPane <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Command</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        execute<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>pane<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'right'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>dataService<span class="token punctuation">:</span> DataService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>rows$ <span class="token operator">=</span> dataService<span class="token punctuation">.</span><span class="token function">getPeople</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </div>
 
