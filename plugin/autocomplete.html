@@ -537,6 +537,8 @@ export class AppModule {
             &lt;q-grid-column key="objectColumn"
                            type="object"
                            editor="autocomplete"
+                           [getLabel]="getLabel"
+                           [getItemLabel]="getItemLabel"
                            [editorOptions]="autocompleteOptions">
             &lt;/q-grid-column>
          &lt;/q-grid-columns>
@@ -565,7 +567,7 @@ export class AppModule {
       <span class="token keyword">return</span> item <span class="token operator">?</span> item<span class="token punctuation">.</span>label <span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
    <span class="token punctuation">}</span>   
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Suggested-Links"><a href="#Suggested-Links" class="headerlink" title="Suggested Links"></a>Suggested Links</h2><ul>
 <li><a href="/reference/fetch.html">Fetch</a></li>
 </ul>
