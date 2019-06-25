@@ -381,15 +381,15 @@
         
                         </li>
         
-                            <li data-tag="Installation,How to show labels in dropdown list,Suggested Links" class=" ">
-        
-                            <a class="title" href="/plugin/dropdown.html">Dropdown</a>
-        
-                        </li>
-        
                             <li data-tag="Installation,How to show custom label for this list of objects,Suggested Links" class="active-topic ">
         
                             <span>Autocomplete</span>
+        
+                        </li>
+        
+                            <li data-tag="Installation,How to show labels in dropdown list,Suggested Links" class=" ">
+        
+                            <a class="title" href="/plugin/dropdown.html">Dropdown</a>
         
                         </li>
         
@@ -519,9 +519,9 @@ export class AppModule {
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
    rows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
 
-      autocompleteOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
-        fetch<span class="token punctuation">:</span> <span class="token function">of</span><span class="token punctuation">(</span><span class="token punctuation">[</span>Math<span class="token punctuation">.</span>PI<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LN10<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LN2<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>E<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LOG10E<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LOG2E<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>SQRT1_2<span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+     autocompleteOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+      fetch<span class="token punctuation">:</span> <span class="token function">of</span><span class="token punctuation">(</span><span class="token punctuation">[</span>Math<span class="token punctuation">.</span>PI<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LN10<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LN2<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>E<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LOG10E<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LOG2E<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>SQRT1_2<span class="token punctuation">]</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
    <span class="token keyword">constructor</span><span class="token punctuation">(</span>dataService<span class="token punctuation">:</span> MyDataService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span>$rows <span class="token operator">=</span> dataService<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -546,24 +546,24 @@ export class AppModule {
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
    rows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
 
-      autocompleteOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
-        fetch<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+   autocompleteOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+      fetch<span class="token punctuation">:</span> <span class="token punctuation">[</span>
          <span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">'First Option'</span> <span class="token punctuation">}</span>
          <span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">'Second Option'</span> <span class="token punctuation">}</span>
       <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
    <span class="token keyword">constructor</span><span class="token punctuation">(</span>dataService<span class="token punctuation">:</span> MyDataService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span>$rows <span class="token operator">=</span> dataService<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">}</span>
 
-    <span class="token function">getLabel</span><span class="token punctuation">(</span>row<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> row<span class="token punctuation">.</span>object<span class="token punctuation">.</span>label<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+   <span class="token function">getLabel</span><span class="token punctuation">(</span>row<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> row<span class="token punctuation">.</span>object<span class="token punctuation">.</span>label<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
 
-    <span class="token function">getItemLabel</span><span class="token punctuation">(</span>item<span class="token punctuation">:</span> <span class="token punctuation">{</span>id<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> item <span class="token operator">?</span> item<span class="token punctuation">.</span>label <span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>   
+   <span class="token function">getItemLabel</span><span class="token punctuation">(</span>item<span class="token punctuation">:</span> <span class="token punctuation">{</span>id<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> item <span class="token operator">?</span> item<span class="token punctuation">.</span>label <span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>   
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Suggested-Links"><a href="#Suggested-Links" class="headerlink" title="Suggested Links"></a>Suggested Links</h2><ul>
