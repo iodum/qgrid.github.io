@@ -40,3 +40,6 @@
 
 .icon-vue:before {
   content: "\E009"; }
+
+.qgrid-examples::before {
+  content: url("../assets/images/qgrid-examples-logo.svg"); }

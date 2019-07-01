@@ -41,6 +41,9 @@
 .icon-vue:before, .vue:before {
   content: "\E009"; }
 
+.qgrid-examples::before {
+  content: url("../assets/images/qgrid-examples-logo.svg"); }
+
 .qgrid-logo, .search-glass, .logo, .angular, .angular-js, .react, .vue, .backbone, .github, .nav-trigger, .search-trigger, .image-virtualize, .image-css, .image-custom, .image-js {
   display: inline-block;
   vertical-align: middle;

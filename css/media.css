@@ -13,23 +13,20 @@
     color: black;
     font-size: 35px !important;
     right: 45px !important; }
-  .backbone {
+  .qgrid-examples {
     transition: ease all .5s;
-    top: 75px;
-    right: 25px;
-    color: black;
-    font-size: 35px !important;
-    right: 50px !important; } }
+    top: 80px;
+    right: 37px; } }
 
 @media screen and (min-width: 851px) and (max-width: 1470px) {
   .index .example .preview iframe {
     width: 75%; }
   .pages header {
     position: absolute; }
-  .backbone {
+  .qgrid-examples {
     transition: ease .5s;
-    top: 23px;
-    right: 100px !important; } }
+    top: 33px;
+    right: 100px; } }
 
 @media screen and (max-width: 850px) {
   .index .example .preview iframe {
@@ -89,9 +86,11 @@
       .pages header .logo-wrapper .logo {
         font-size: 31px;
         margin: 0; }
-    .pages header .backbone {
-      top: 23px;
+    .pages header .qgrid-examples {
+      top: 27px;
       right: 67px; }
+      .pages header .qgrid-examples::before {
+        content: url("../assets/images/qgex-small.svg"); }
   .pages .nav-trigger {
     display: block; }
   .pages #nav {
