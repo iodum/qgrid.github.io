@@ -5,17 +5,17 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <title>
-        Date Time — q-grid</title>
+        Live — q-grid</title>
     <meta charset="utf-8">
     <meta name="description" content="qgrid - Framework for creating data grids">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Date Time — qgrid">
+    <meta property="og:title" content="Live — qgrid">
     <meta property="og:description" content>
     <meta property="og:image" content="https:////images/logo.png">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Date Time — qgrid">
+    <meta name="twitter:title" content="Live — qgrid">
     <meta name="twitter:description" content>
     <meta name="twitter:image" content="https:///assets/logo.png">
 
@@ -50,7 +50,7 @@
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/menu.js"></script>
     <script src="/js/lazy.js"></script>
-    <script>window.PAGE_TYPE = "Column Types"</script>
+    <script>window.PAGE_TYPE = "Plugins"</script>
 
 <link rel="stylesheet" href="/css/prism-vs.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
@@ -239,9 +239,9 @@
         
                         </li>
         
-                            <li data-tag="Time,Default template and specific properties,Date as String,Suggested Links" data-example-tag class="active-topic ">
+                            <li data-tag="Time,Default template and specific properties,Date as String,Suggested Links" data-example-tag class=" ">
         
-                            <span class="title">Date Time</span>
+                            <a class="title" href="/column-type/date-column.html">Date Time</a>
         
                         </li>
         
@@ -405,9 +405,9 @@
         
                         </li>
         
-                            <li data-tag="Installation,How to setup animation period" data-example-tag class=" ">
+                            <li data-tag="Installation,How to setup animation period" data-example-tag class="active-topic ">
         
-                            <a class="title" href="/plugin/live.html">Live</a>
+                            <span class="title">Live</span>
         
                         </li>
         
@@ -481,76 +481,47 @@
 
 <main>
     <div class="page-wrapper">
-    <h1>Date Time</h1>
-    <p>Use this column type to display date or date times.</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-columns</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>date<span class="token punctuation">"</span></span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>birth<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-column</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <h1>Live</h1>
+    <p>Use live plugin to animate cells and rows when they will be changed.</p>
 
     <span class="editor">
-      <iframe data-src="//stackblitz.com/github/qgrid/ng2-example/tree/column-date-basic/latest?embed=1&file=app/app.component.ts&hideExplorer=1&hideNavigation=1&hidedevtools=1&view=preview"></iframe>
+      <iframe data-src="//stackblitz.com/github/qgrid/ng2-example/tree/live-data-basic/latest?embed=1&file=app/app.component.ts&hideExplorer=1&hideNavigation=1&hidedevtools=1&view=preview"></iframe>
     </span>
 
-<h2 id="Time"><a href="#Time" class="headerlink" title="Time"></a>Time</h2><p>Use number type to display time values in a specific format.</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-columns</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>time<span class="token punctuation">"</span></span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alarm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-column</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-    <span class="editor">
-      <iframe data-src="//stackblitz.com/github/qgrid/ng2-example/tree/column-time-basic/latest?embed=1&file=app/app.component.ts&hideExplorer=1&hideNavigation=1&hidedevtools=1&view=preview"></iframe>
-    </span>
-
-<h2 id="Default-template-and-specific-properties"><a href="#Default-template-and-specific-properties" class="headerlink" title="Default template and specific properties"></a>Default template and specific properties</h2><ul>
-<li>Use <code>format</code> property to build a date display value according to locale rules.</li>
-</ul>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-columns</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>date<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng-template</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>body<span class="token punctuation">"</span></span> <span class="token attr-name">let-$cell</span><span class="token punctuation">></span></span>
-            {{$cell.label | qGridDate: $cell.column.format}}
-         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng-template</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-column</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Date-as-String"><a href="#Date-as-String" class="headerlink" title="Date as String"></a>Date as String</h2><p>Usually data from http request goes directly to the q-grid, in this case if column is marked or generated as date only ISO 8601 format is supported.</p>
-<ul>
-<li><code>YYYY-MM-DD</code> - 2017-08-10</li>
-<li><code>YYYY-MM-DDTHH:mm</code> - 2017-08-10T15:20</li>
-<li><code>YYYY-MM-DDTHH:mm</code> - 2017-08-10T15:20:23</li>
-<li><code>YYYY-MM-DDTHH:mm</code> - 2017-08-10T15:20:23.738Z</li>
-</ul>
-<p>If it’s not possible to lead data contract to ISO 8601 and there is no chance to to convert string to date object before putting it to q-grid column <code>value</code> property can be overridden.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Use <code>q-grid-live-cell</code> inside cell template to animate cell’s content and <code>q-grid-live-row</code> for rows animation.</p>
 <pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
    selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
    template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
-      &lt;q-grid>
-         &lt;q-grid-columns>
-            &lt;q-grid-column type="date" 
-                           [value]="toDate">
-            &lt;/q-grid-column>
-         &lt;/q-grid-columns>
-      &lt;/q-grid>
-      `</span></span>
+        &lt;q-grid [rows]="rows$ | async">
+            &lt;q-grid-columns generation="deep">
+                &lt;q-grid-column key="last" type="currency">
+
+                    &lt;ng-template for="change" let-$cell>
+                        &lt;q-grid-live-cell [cell]="$cell">&lt;/q-grid-live-cell>
+                    &lt;/ng-template>
+
+                &lt;/q-grid-column>
+            &lt;/q-grid-columns>
+
+            &lt;q-grid-live-rows>
+            &lt;/q-grid-live-rows>
+
+         &lt;/q-grid>
+    `</span></span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
-   <span class="token function">toDate</span><span class="token punctuation">(</span>row<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">,</span> column<span class="token punctuation">:</span> Column<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>row<span class="token punctuation">[</span>column<span class="token punctuation">.</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
+    @<span class="token function">ViewChild</span><span class="token punctuation">(</span>GridComponent<span class="token punctuation">)</span> myGrid<span class="token punctuation">:</span> GridComponent<span class="token punctuation">;</span>
+    rows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> dataService<span class="token punctuation">:</span> MyDataService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span>rows$ <span class="token operator">=</span> dataService<span class="token punctuation">.</span><span class="token function">getRows</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Suggested-Links"><a href="#Suggested-Links" class="headerlink" title="Suggested Links"></a>Suggested Links</h2><ul>
-<li><a href="https://angular.io/api/common/DatePipe" target="_blank" rel="noopener">Angular date pipe</a></li>
-<li><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601</a></li>
-</ul>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="How-to-setup-animation-period"><a href="#How-to-setup-animation-period" class="headerlink" title="How to setup animation period?"></a>How to setup animation period?</h2><p>Use <code>duration</code> attribute that receives milliseconds, by default duration equals to 200ms.</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-live-rows</span> <span class="token attr-name">[duration]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1000<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-live-rows</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 </div>
 

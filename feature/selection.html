@@ -405,6 +405,12 @@
         
                         </li>
         
+                            <li data-tag="Installation,How to setup animation period" data-example-tag class=" ">
+        
+                            <a class="title" href="/plugin/live.html">Live</a>
+        
+                        </li>
+        
                     <li><h3>Reference</h3></li>
         
                             <li data-tag="What about id in the q-grid,How to setup title of the grid" data-example-tag class=" ">
@@ -449,15 +455,15 @@
         
                         </li>
         
-                            <li data-tag="The Picture" data-example-tag class=" ">
-        
-                            <a class="title" href="/reference/style-api.html">Style API</a>
-        
-                        </li>
-        
                             <li data-tag data-example-tag class=" ">
         
                             <a class="title" href="/reference/dom.html">DOM Internals</a>
+        
+                        </li>
+        
+                            <li data-tag="The Picture" data-example-tag class=" ">
+        
+                            <a class="title" href="/reference/style-api.html">Style API</a>
         
                         </li>
         
@@ -511,7 +517,8 @@
 
 <h2 id="How-to-change-selection-mode"><a href="#How-to-change-selection-mode" class="headerlink" title="How to change selection mode?"></a>How to change selection mode?</h2><p>Use <code>mode</code> property to change selection mode.</p>
 <ul>
-<li>Use <code>single</code> mode when only one row/column should be selected.</li>
+<li>Use <code>single</code> mode when only one row/column could be selected.</li>
+<li>Use <code>singleOne</code> mode when only one row/column could be selected and prevent unselecting by repeating clicks or key events.</li>
 <li>Use <code>multiple</code> mode when several rows/columns could be selected.</li>
 <li>Use <code>range</code> mode when drag and drop selection should be turned on.</li>
 </ul>
@@ -551,7 +558,7 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="How-to-restrict-selection-only-on-checkbox-click"><a href="#How-to-restrict-selection-only-on-checkbox-click" class="headerlink" title="How to restrict selection only on checkbox click?"></a>How to restrict selection only on checkbox click?</h2><p>Set selection <code>area</code> property to <code>custom</code>  if clicking to q-grid body should not lead to row selection.</p>
-<h2 id="How-to-prevent-unselecting-if-row-was-clicked-again"><a href="#How-to-prevent-unselecting-if-row-was-clicked-again" class="headerlink" title="How to prevent unselecting if row was clicked again?"></a>How to prevent unselecting if row was clicked again?</h2><p>Use <code>change</code> information to manipulate with logic of selection. Next lines prevent unselecting of row that was double clicked.</p>
+<h2 id="How-to-prevent-unselecting-if-row-was-clicked-again"><a href="#How-to-prevent-unselecting-if-row-was-clicked-again" class="headerlink" title="How to prevent unselecting if row was clicked again?"></a>How to prevent unselecting if row was clicked again?</h2><p>If <code>singleOne</code> mode is not a case use <code>selectionChange</code> event. Next lines prevent unselecting of row that was double clicked.</p>
 <pre class="line-numbers language-typescript"><code class="language-typescript">model<span class="token punctuation">.</span>selectionChanged<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
    <span class="token keyword">const</span> change <span class="token operator">=</span> e<span class="token punctuation">.</span>changes<span class="token punctuation">[</span><span class="token string">'items'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
    <span class="token keyword">if</span> <span class="token punctuation">(</span>change<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -603,7 +610,7 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="What-shortcuts-does-selection-implement-by-default"><a href="#What-shortcuts-does-selection-implement-by-default" class="headerlink" title="What shortcuts does selection implement by default?"></a>What shortcuts does selection implement by default?</h2><ul>
-<li><code>shift+space</code> - toggle row.</li>
+<li><code>space|shift+space</code> - toggle row.</li>
 <li><code>shift+up</code> - toggle previous row.</li>
 <li><code>shift+down</code> - `toggle next row.</li>
 <li><code>ctrl+space</code> - toggle column.</li>
@@ -612,6 +619,17 @@
 <li><code>ctrl+a</code> - select all.</li>
 </ul>
 <h2 id="How-to-override-default-selection-shortcuts"><a href="#How-to-override-default-selection-shortcuts" class="headerlink" title="How to override default selection shortcuts?"></a>How to override default selection shortcuts?</h2><p>Use <code>shortcut</code> property from selection model.</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token function">ngAfterViewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> model <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>myGrid<span class="token punctuation">;</span>
+
+    model<span class="token punctuation">.</span><span class="token function">selection</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      shortcut<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+         <span class="token operator">...</span>model<span class="token punctuation">.</span><span class="token function">selection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>shortcut<span class="token punctuation">,</span>
+         toggleRow<span class="token punctuation">:</span> <span class="token string">'space'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="How-to-handle-click-events"><a href="#How-to-handle-click-events" class="headerlink" title="How to handle click events?"></a>How to handle click events?</h2><p>q-grid does not provide custom click event, but it’s always possible to use standard <code>(click)</code> directive. Use selection and click <code>$event</code> to identify what being clicked.</p>
 <pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onClick($event)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
