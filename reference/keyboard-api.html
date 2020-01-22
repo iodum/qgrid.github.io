@@ -5,17 +5,17 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <title>
-        Dropdown — q-grid</title>
+        Keyboard API — q-grid</title>
     <meta charset="utf-8">
     <meta name="description" content="qgrid - Framework for creating data grids">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Dropdown — qgrid">
+    <meta property="og:title" content="Keyboard API — qgrid">
     <meta property="og:description" content>
     <meta property="og:image" content="https:////images/logo.png">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Dropdown — qgrid">
+    <meta name="twitter:title" content="Keyboard API — qgrid">
     <meta name="twitter:description" content>
     <meta name="twitter:image" content="https:///assets/logo.png">
 
@@ -50,7 +50,7 @@
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/menu.js"></script>
     <script src="/js/lazy.js"></script>
-    <script>window.PAGE_TYPE = "Plugins"</script>
+    <script>window.PAGE_TYPE = "Reference"</script>
 
 <link rel="stylesheet" href="/css/prism-vs.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
@@ -387,9 +387,9 @@
         
                         </li>
         
-                            <li data-tag="Installation,How to show labels in dropdown list,Suggested Links" data-example-tag class="active-topic ">
+                            <li data-tag="Installation,How to show labels in dropdown list,Suggested Links" data-example-tag class=" ">
         
-                            <span class="title">Dropdown</span>
+                            <a class="title" href="/plugin/dropdown.html">Dropdown</a>
         
                         </li>
         
@@ -467,9 +467,9 @@
         
                         </li>
         
-                            <li data-tag data-example-tag class=" ">
+                            <li data-tag data-example-tag class="active-topic ">
         
-                            <a class="title" href="/reference/keyboard-api.html">Keyboard API</a>
+                            <span class="title">Keyboard API</span>
         
                         </li>
         
@@ -493,97 +493,28 @@
 
 <main>
     <div class="page-wrapper">
-    <h1>Dropdown</h1>
-    
-    <span class="editor">
-      <iframe data-src="//stackblitz.com/github/qgrid/ng2-example/tree/dropdown-basic/latest?embed=1&file=app/app.component.ts&hideExplorer=1&hideNavigation=1&hidedevtools=1&view=preview"></iframe>
-    </span>
-
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><!-- Add dropdown module to imports section.
-
-```typescript
-import { GridModule } from 'ng2-qgrid';
-import { ThemeModule } from 'ng2-qgrid/theme/material';
-import { DropdownModule } from 'ng2-qgrid/plugin/dropdown';
-
-@NgModule({
-   imports: [
-      GridModule,
-      ThemeModule,
-      DropdownModule
-   ]
-})
-export class AppModule {
-}
-``` -->
-<p>Use <code>dropdown</code> as a column editor.</p>
+    <h1>Keyboard API</h1>
+    <p>Use keyboard API to handle key presses when q-grid is in focus.</p>
 <pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-   selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
    template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
-      &lt;q-grid [rows]="rows$ | async">
-         &lt;q-grid-columns generation="deep">
-            &lt;q-grid-column key="number"
-                           title="Number"
-                           type="number"
-                           editor="dropdown"
-                           [editorOptions]="dropdownOptions">
-            &lt;/q-grid-column>
-         &lt;/q-grid-columns>
-    &lt;/q-grid>
+    &lt;q-grid>&lt;/q-grid>
    `</span></span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
-   rows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">implements</span> <span class="token class-name">AfterViewInit</span> <span class="token punctuation">{</span>
+    @<span class="token function">ViewChild</span><span class="token punctuation">(</span>GridComponent<span class="token punctuation">)</span> myGrid<span class="token punctuation">:</span> GridComponent<span class="token punctuation">;</span>
 
+    <span class="token function">ngAfterViewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> <span class="token punctuation">{</span> model <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>myGrid<span class="token punctuation">;</span>
 
-      dropdownOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
-        fetch<span class="token punctuation">:</span> <span class="token punctuation">[</span>Math<span class="token punctuation">.</span>PI<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LN10<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LN2<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>E<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LOG10E<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>LOG2E<span class="token punctuation">,</span> Math<span class="token punctuation">.</span>SQRT1_2<span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-   <span class="token keyword">constructor</span><span class="token punctuation">(</span>dataService<span class="token punctuation">:</span> MyDataService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>$rows <span class="token operator">=</span> dataService<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        model<span class="token punctuation">.</span>keyboardChanged<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> <span class="token punctuation">{</span> codes<span class="token punctuation">,</span> status <span class="token punctuation">}</span> <span class="token operator">=</span> e<span class="token punctuation">.</span>state<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>status <span class="token operator">===</span> <span class="token string">'down'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>codes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="How-to-show-labels-in-dropdown-list"><a href="#How-to-show-labels-in-dropdown-list" class="headerlink" title="How to show labels in dropdown list?"></a>How to show labels in dropdown list?</h2><p>Use <code>itemLabel</code> property in the dropdown column</p>
-<pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-   selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
-   template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
-      &lt;q-grid [rows]="rows$ | async">
-         &lt;q-grid-columns generation="deep">
-            &lt;q-grid-column key="labeledNumber"
-                           title="Number"
-                           type="number"
-                           editor="dropdown"
-                                [itemLabel]="getItemLabel"
-                           [editorOptions]="dropdownOptions">
-            &lt;/q-grid-column>
-         &lt;/q-grid-columns>
-    &lt;/q-grid>
-   `</span></span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
-   rows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
-
-      dropdownOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
-        fetch<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-         <span class="token punctuation">{</span> label<span class="token punctuation">:</span> <span class="token string">'PI'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> Math<span class="token punctuation">.</span>PI <span class="token punctuation">}</span><span class="token punctuation">,</span> 
-         <span class="token punctuation">{</span> label<span class="token punctuation">:</span> <span class="token string">'E'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> Math<span class="token punctuation">.</span>E <span class="token punctuation">}</span>
-      <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-   <span class="token keyword">constructor</span><span class="token punctuation">(</span>dataService<span class="token punctuation">:</span> MyDataService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>$rows <span class="token operator">=</span> dataService<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-
-   <span class="token function">getItemLabel</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> item<span class="token punctuation">.</span>label<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Suggested-Links"><a href="#Suggested-Links" class="headerlink" title="Suggested Links"></a>Suggested Links</h2><ul>
-<li><a href="/reference/fetch.html">Fetch</a></li>
-</ul>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </div>
 
