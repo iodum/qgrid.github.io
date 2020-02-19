@@ -117,7 +117,7 @@
         
                         </li>
         
-                            <li data-tag="How to change column header template,How to change cell editor template,How to change aggregation template in the column footer,Suggested Links" data-example-tag class="active-topic ">
+                            <li data-tag="How to change column header template,How to change cell editor template,How to change aggregation template in the column footer,How to implement custom aggregation in the column footer,Suggested Links" data-example-tag class="active-topic ">
         
                             <span class="title">Cell Templates</span>
         
@@ -177,7 +177,7 @@
         
                         </li>
         
-                            <li data-tag="How to apply auto focus in q-grid,How to focus the last row" data-example-tag class=" ">
+                            <li data-tag="How to apply auto focus in q-grid,How to focus the last row,How to understand if q-grid is on focus or not" data-example-tag class=" ">
         
                             <a class="title" href="/feature/focus.html">Focusing</a>
         
@@ -542,13 +542,25 @@
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>phase<span class="token punctuation">"</span></span>
                      <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Phase<span class="token punctuation">"</span></span>
                      <span class="token attr-name">aggregation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>count<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng-template</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>foot<span class="token punctuation">"</span></span> <span class="token attr-name">let-$cell"</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng-template</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>foot<span class="token punctuation">"</span></span> <span class="token attr-name">let-$cell</span><span class="token punctuation">></span></span>
             Count is {{$cell.value}}
          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng-template</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-column</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="How-to-implement-custom-aggregation-in-the-column-footer"><a href="#How-to-implement-custom-aggregation-in-the-column-footer" class="headerlink" title="How to implement custom aggregation in the column footer?"></a>How to implement custom aggregation in the column footer?</h2><p>Use footer template and your custom function from component.</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid</span> <span class="token attr-name">[rows]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>rows$ | async<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-columns</span> <span class="token attr-name">generation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>deep<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>q-grid-column</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>phase<span class="token punctuation">"</span></span>
+                     <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Phase<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng-template</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>foot<span class="token punctuation">"</span></span> <span class="token attr-name">let-$cell</span><span class="token punctuation">></span></span>
+            Diff: {{getDiffFor('phase')}}
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng-template</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-column</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Suggested-Links"><a href="#Suggested-Links" class="headerlink" title="Suggested Links"></a>Suggested Links</h2><ul>
 <li><a href="/reference/cell-service.html">$cell service</a></li>
 <li><a href="/reference/view-service.html">$view service</a></li>

@@ -117,7 +117,7 @@
         
                         </li>
         
-                            <li data-tag="How to change column header template,How to change cell editor template,How to change aggregation template in the column footer,Suggested Links" data-example-tag class=" ">
+                            <li data-tag="How to change column header template,How to change cell editor template,How to change aggregation template in the column footer,How to implement custom aggregation in the column footer,Suggested Links" data-example-tag class=" ">
         
                             <a class="title" href="/feature/cell-templates.html">Cell Templates</a>
         
@@ -177,7 +177,7 @@
         
                         </li>
         
-                            <li data-tag="How to apply auto focus in q-grid,How to focus the last row" data-example-tag class="active-topic ">
+                            <li data-tag="How to apply auto focus in q-grid,How to focus the last row,How to understand if q-grid is on focus or not" data-example-tag class="active-topic ">
         
                             <span class="title">Focusing</span>
         
@@ -534,7 +534,8 @@
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid-columns</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>q-grid</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="How-to-focus-the-last-row"><a href="#How-to-focus-the-last-row" class="headerlink" title="How to focus the last row?"></a>How to focus the last row?</h2><pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<h2 id="How-to-focus-the-last-row"><a href="#How-to-focus-the-last-row" class="headerlink" title="How to focus the last row?"></a>How to focus the last row?</h2><p>Use focus method of q-grid service, it will automatically got to the necessary page if required.</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
    selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
    template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
       &lt;q-grid [rows]="rows$ | async">
@@ -563,6 +564,31 @@
    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="How-to-understand-if-q-grid-is-on-focus-or-not"><a href="#How-to-understand-if-q-grid-is-on-focus-or-not" class="headerlink" title="How to understand if q-grid is on focus or not?"></a>How to understand if q-grid is on focus or not?</h2><p>Use q-grid <code>focus</code> model to understand wether it’s active or not.</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   selector<span class="token punctuation">:</span> <span class="token string">'my-component'</span><span class="token punctuation">,</span>
+   template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
+      &lt;q-grid [rows]="rows$ | async">
+         &lt;q-grid-columns generation="deep">&lt;/q-grid-columns>
+      &lt;/q-grid>
+   `</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
+   @<span class="token function">ViewChild</span><span class="token punctuation">(</span>GridComponent<span class="token punctuation">)</span> myGrid<span class="token punctuation">:</span> GridComponent<span class="token punctuation">;</span>   
+   rows$<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">;</span>
+
+   loadCommand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Command</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        execute<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>rows$ <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>dataService<span class="token punctuation">.</span><span class="token function">getAtoms</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        canExecute<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> model<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isActive<span class="token punctuation">,</span>
+        shortcut<span class="token punctuation">:</span> <span class="token string">'ctrl+l'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> dataService<span class="token punctuation">:</span> MyDataService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </div>
 
